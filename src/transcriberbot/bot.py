@@ -4,7 +4,6 @@ import resources as R
 import metaclass
 import functional 
 import audiotools
-import phototools
 import pprint
 import logging
 import os
@@ -137,9 +136,7 @@ class TranscriberBot(metaclass=metaclass.Singleton):
     self.voice_thread_pool = ThreadPoolExecutor(
       max_workers=config.get_config_prop("app")["voice_max_threads"]
     )
-    self.photos_thread_pool = ThreadPoolExecutor(
-      max_workers=config.get_config_prop("app")["photos_max_threads"]
-    )
+   
 
     self.misc_thread_pool = ThreadPoolExecutor(
       max_workers=2
