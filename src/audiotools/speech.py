@@ -15,8 +15,6 @@ class WitTranscriber:
 
   def __init__(self, api_key):
     self.session = requests.Session()
-      api_key= "RK3ETXWBJQSMO262RXPAIXFSG6NH3QRH"
-
     self.session.headers.update(
       {
         "Authorization": "Bearer " + api_key,
