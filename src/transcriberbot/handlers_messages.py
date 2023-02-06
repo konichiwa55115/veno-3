@@ -165,7 +165,7 @@ def transcribe_audio_file(bot, update, path):
 def process_media_voice(bot, update, media, name):
   chat_id = get_chat_id(update)
   file_size = media.file_size
-  max_size = config.get_config_prop("app").get("max_media_voice_file_size", 9999999999999999999999999999999999999999999999999999999999999999 * 1024 * 1024)
+  max_size = config.get_config_prop("app").get("max_media_voice_file_size", 999 * 1024 * 1024)
 
   if file_size > max_size:
     message_id = get_message_id(update)
