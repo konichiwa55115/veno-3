@@ -4,18 +4,12 @@
 <string name="language_set">{lang} als Sprache festgelegt</string>
 
 <string name="message_welcome">
-Dieser Bot transkribiert Audio und Bilder in Text. Du kannst ihn einer Gruppe hinzufügen, oder Bilder und Sprachnachrichten an ihn weiterleiten.
-{b}Wichtig{/b}: Innerhalb von Gruppen antwortet dieser Bot nur auf Kommandos von {b}nicht-anonymen Admins{/b}
-
-Wähle eine Sprache (für Sprachnachrichten):
-{languages}
-
-Im {a href="https://telegram.me/storebot?start=transcriber_bot"}Store-Bot{/a} kannst du diesen Bot bewerten (/rate) oder Feedback hinterlassen!
-
-Wenn du Probleme hast oder mit den Entwicklern in Kontakt treten möchtest, nutze den Support-Bot @transcribersupport_bot!
-
-Wenn dir der Bot gefällt, kannst du den Entwicklern etwas spenden (/donate). Damit hilft du, den Dienst zu aufrecht zu erhalten und weiter zu verbessern. Vielen Dank!
-</string>
+هذا بوت لتفريغ الصوتيات والدروس . فقط أرسل أو حوّل الصوتية وسيتم تفريغها
+  لبقية البوتات هنا 
+  https://t.me/ibnAlQyyim/1120
+  لدعم استمرار المشروع هنا 
+  http://paypal.me/kelectronic89
+  
 
 <string name="message_rate">https://telegram.me/storebot?start=transcriber_bot</string>
 <string name="message_donate">
