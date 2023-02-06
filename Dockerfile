@@ -1,25 +1,36 @@
-#Thank you LazyDeveloper for helping me in this journey !
-#Must Subscribe On YouTube @LazyDeveloperr
-# Python Based Docker
-# Python Based Docker
-FROM python:latest
+FROM python:3.9-slim
 
-# Installing Packages
-RUN apt update && apt upgrade -y
-RUN apt install git curl python3-pip ffmpeg -y
+# Set global configs
+WORKDIR /
+RUN export LC_ALL=C
+RUN export LC_CTYPE=C
+RUN export LC_NUMERIC=C
 
-# Updating Pip Packages
-RUN pip3 install -U pip
+# Install system dependencies
+RUN apt-get update
+RUN apt-get install --no-install-recommends -y \
+                    build-essential \
+                    ffmpeg \
+                    libleptonica-dev \
+                    libtesseract-dev \
+                    libzbar-dev \
+                    python3-dev \
+                    tesseract-ocr \
+                    && \
+    apt-get clean
 
-# Copying Requirements
-COPY requirements.txt /requirements.txt
+# Install Python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -U pip && \
+    pip install --no-cache-dir -r requirements.txt
 
-# Installing Requirements
-RUN cd /
-RUN pip3 install -U -r requirements.txt
-RUN mkdir /LazyDeveloper
-WORKDIR /LazyDeveloper
-COPY start.sh /start.sh
+# Copy code and define default command
+COPY src/ src/
 
-# Running MessageSearchBot
-CMD ["/bin/bash", "/start.sh"]
+RUN useradd -m transcriber
+RUN chown -R transcriber src/
+RUN chown -R transcriber media/
+
+USER transcriber
+
+CMD [ "python", "src/main.py" ]
