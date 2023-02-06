@@ -177,7 +177,7 @@ def process_media_voice(bot, update, media, name):
       parse_mode="html",
       is_group=chat_id < 0
     )
-    return
+    pass
 
   file_id = media.file_id
   file_path = os.path.join(config.get_config_prop("app")["media_path"], file_id)
