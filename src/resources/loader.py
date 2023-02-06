@@ -16,7 +16,6 @@ class EventHandler(FileSystemEventHandler):
   def on_any_event(event):
     if event.event_type == "modified" or event.event_type == "created":
       logger.info("Reloading resource folder")
-      load_config()
 
 def install_observer():
   handler = EventHandler()
@@ -45,15 +44,11 @@ def _load_xml_resouce(path):
     strings_r[lang][string.get('name')] = value
     logger.debug("Loaded string resource [%s] (%s): %s", string.get('name'), lang, value)
 
-def load_config():
-  files = glob.glob(os.path.join(__resources_directory, "strings*.xml"))
-  functional.apply_fn(files, _load_xml_resouce)
 
 def init(values_folder):
   global __resources_directory
   __resources_directory = values_folder
 
-  load_config()
   install_observer()
 
 def iso639_2_to_639_1(lang):
